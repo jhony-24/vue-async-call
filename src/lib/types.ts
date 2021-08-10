@@ -1,0 +1,27 @@
+import { Ref } from "vue"
+
+export interface AsyncReactiveValue<Value> {
+  loading: boolean
+  error: any
+  data: Value | undefined
+  idl: boolean
+}
+
+export type DefaultParams<T> = Omit<AsyncReactiveValue<T>, "idl">
+export type ResponsePromiseCallback = Promise<any> | (() => Promise<any>)
+
+export interface ReturnUseAsync<T> extends AsyncReactiveValue<T> {
+  exec(promise: ResponsePromiseCallback): Promise<void>
+  execOnce(promise: ResponsePromiseCallback): Promise<void>
+}
+
+export type ExecPromiseFunction = (promise: ResponsePromiseCallback) => void
+
+export interface AsyncCacheProvider<Data, Error extends any> {
+  loading: Ref<boolean>
+  data: Ref<Data>
+  error: Ref<Error>
+  exec: ExecPromiseFunction
+  execOnce: ExecPromiseFunction
+  execCache: ExecPromiseFunction
+}
