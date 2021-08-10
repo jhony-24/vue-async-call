@@ -1,0 +1,23 @@
+{
+    "root": true,
+    "env": {
+        "jest": true,
+        "browser": true,
+        "node": true
+    },
+    "extends": [
+        "prettier",
+        "vue"
+     ],
+    "plugins": [
+        "import",
+        "node",
+        "vue"
+     ],
+    "parserOptions": {
+        "ecmaVersion": 2020
+    },
+    "rules" : {
+        
+    }
+}
