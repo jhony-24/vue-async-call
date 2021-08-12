@@ -7,6 +7,13 @@ export interface AsyncReactiveValue<Value> {
   idl: boolean
 }
 
+export interface AsyncReactiveConfiguration<Value> {
+  onSuccess?(response?: Value): void
+  onError?(error: Error): void
+  onLoading?(): void
+  onIdl?(): void
+}
+
 export type DefaultParams<T> = Omit<AsyncReactiveValue<T>, "idl">
 export type ResponsePromiseCallback = Promise<any> | (() => Promise<any>)
 
