@@ -1,0 +1,42 @@
+{
+  "name": "@vue-async-call/core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack serve--mode=development",
+    "build": "webpack --mode=production"
+  },
+  "keywords": [
+    "vue",
+    "lib"
+  ],
+  "bugs": {
+    "url": "https://github.com/jhony-24/vue-async-call/issues"
+  },
+  "homepage": "https://github.com/jhony-24/vue-async-call",
+  "author": {
+    "name":"jhony-24",
+    "url": "https://github.com/jhony-24"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "vue-demi": "latest"
+  },
+  "peerDependencies": {
+    "@vue/composition-api": "^1.1.0",
+    "vue": "^2.6.0 || ^3.2.0"
+  },
+  "peerDependenciesMeta": {
+    "vue": {
+      "optional": true
+    },
+    "@vue/composition-api": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "typescript": "^3.9.7",
+    "vue": "^3.0.0"
+  }
+}
