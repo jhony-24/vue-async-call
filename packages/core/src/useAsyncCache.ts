@@ -1,5 +1,5 @@
-import { computed, inject, provide, Ref, ref, UnwrapRef, watch } from "vue"
-import { ExecPromiseFunction, ResponsePromiseCallback } from "./types"
+import { computed, inject, provide, Ref, ref, UnwrapRef, watch } from "vue-demi"
+import { AsyncCacheProvider, ResponsePromiseCallback } from "./types"
 import { useAsync } from "./useAsync"
 
 const defaultKey = "asyncCache"
@@ -31,7 +31,7 @@ export function useAsyncCacheConsumer<T extends any>(
     data: dataProvider,
     exec,
     execOnce,
-  } = inject(key || defaultKey) as any
+  } = inject(key || defaultKey) as AsyncCacheProvider<T>
   const execCache = (resolve: ResponsePromiseCallback) =>
     execCacheProvider(resolve)
   const cacheConsumerData = computed(() => dataProvider.value) as Ref<T>
@@ -47,11 +47,11 @@ export function useAsyncCacheConsumer<T extends any>(
   )
 
   return {
-    data: data as Ref<T>,
-    loading: loading as Ref<boolean>,
-    error: error as Ref<any>,
-    exec: exec as ExecPromiseFunction,
-    execOnce: execOnce as ExecPromiseFunction,
-    execCache: execCache as ExecPromiseFunction,
+    data,
+    loading,
+    error,
+    exec,
+    execOnce,
+    execCache,
   }
 }

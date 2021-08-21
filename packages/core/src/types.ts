@@ -1,4 +1,4 @@
-import { Ref } from "vue"
+import { Ref } from "vue-demi"
 
 export interface AsyncReactiveValue<Value> {
   loading: boolean
@@ -24,9 +24,10 @@ export interface ReturnUseAsync<T> extends AsyncReactiveValue<T> {
 
 export type ExecPromiseFunction = (promise: ResponsePromiseCallback) => void
 
-export interface AsyncCacheProvider<Data, Error extends any> {
+export interface AsyncCacheProvider<Data, Error extends any = null> {
   loading: Ref<boolean>
   data: Ref<Data>
+  idl: Ref<boolean>
   error: Ref<Error>
   exec: ExecPromiseFunction
   execOnce: ExecPromiseFunction

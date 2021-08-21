@@ -6,7 +6,11 @@
   "workspaces": [
     "packages/**"
   ],
-  "scripts": {},
+  "scripts": {
+    "core:build" : "lerna run --scope @vue-async-call/core build",
+    "core:test" : "lerna run --scope @vue-async-call/core test",
+    "core:test:watch" : "lerna run --scope @vue-async-call/core test:watch"
+  },
   "keywords": [
     "vue",
     "library",

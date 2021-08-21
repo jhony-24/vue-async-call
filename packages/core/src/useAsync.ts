@@ -1,4 +1,4 @@
-import { reactive, Ref, toRefs, watch } from "vue"
+import { reactive, Ref, toRefs, watch } from "vue-demi"
 import {
   AsyncReactiveConfiguration,
   AsyncReactiveValue,
@@ -12,7 +12,7 @@ export function useAsync<T extends any>(
     error: "",
     data: undefined,
   },
-  configuration: AsyncReactiveConfiguration<T>
+  configuration?: AsyncReactiveConfiguration<T>
 ) {
   const state = reactive<AsyncReactiveValue<T>>({
     ...(defaultParams as AsyncReactiveValue<T>),
@@ -21,16 +21,16 @@ export function useAsync<T extends any>(
 
   async function sendData(responseCallback: ResponsePromiseCallback) {
     try {
-      configuration.onLoading?.()
+      configuration?.onLoading?.()
       const response = await (typeof responseCallback === "function"
         ? responseCallback()
         : responseCallback)
       state.data = response
-      configuration.onSuccess?.(response)
+      configuration?.onSuccess?.(response)
       state.error = ""
     } catch (error) {
       state.error = error?.response
-      configuration.onError?.(error)
+      configuration?.onError?.(error)
     } finally {
       state.loading = false
     }
@@ -51,7 +51,7 @@ export function useAsync<T extends any>(
     () => state.idl,
     (idl) => {
       if (idl) {
-        configuration.onIdl?.()
+        configuration?.onIdl?.()
       }
     },
     { immediate: true }
