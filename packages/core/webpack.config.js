@@ -8,6 +8,9 @@ module.exports = {
   output: {
     filename: "[name].js",
     path: path.join(__dirname, "dist"),
+    library: {
+      type: "commonjs",
+    },
   },
   module: {
     rules: [
@@ -20,5 +23,8 @@ module.exports = {
   },
   resolve: {
     extensions: [".ts", ".js"],
+  },
+  externals: {
+    "vue-demi": "vue-demi",
   },
 }
