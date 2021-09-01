@@ -1,7 +1,15 @@
 # Vue async call
 
+## Installation
+```
+npm install vue-async-call
+```
+or using yarn
+```
+yarn add vue-async-call
+```
 
-### Basic usage
+## Usage
 
 Here to resolve async promises we use 
 the composable **useAsync**. This basically take 
@@ -47,7 +55,7 @@ console.log(users.data);
 console.log(jobs.data);
 ````
 
-### Typescript
+## Typescript
 Define just an interface or type and you pass it 
 as a generic type.
 
@@ -59,7 +67,7 @@ interface User {
 const { data } = useAsync<User[]>();
 ```
 
-### Using components
+## Using components
 ```vue
 <template>
   <div>
@@ -88,7 +96,7 @@ export default defineComponent({
 </script>
 ```
 
-### API
+## API
 #### useAsync
 
 #### useAsyncProvider
