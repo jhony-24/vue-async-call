@@ -48,7 +48,8 @@ console.log(jobs.data);
 ````
 
 ### Typescript
-Define just an interface and you pass it as an generic type.
+Define just an interface or type and you pass it 
+as a generic type.
 
 ```typescript
 interface User {
@@ -56,6 +57,35 @@ interface User {
    age: number;
 }
 const { data } = useAsync<User[]>();
+```
+
+### Using components
+```vue
+<template>
+  <div>
+    <AsyncCall :promise="getUser" v-slot="{ data }">
+       {{ data }}
+    </AsyncCall>
+  </div>
+</template>
+<script>
+import { defineComponent } from "vue";
+import { AsyncCall } from "vue-async-call";
+
+export default defineComponent({
+ components: {
+  AsyncCall
+ },
+ setup() {
+   const getUser = async () => {
+    return {};
+   }
+   return {
+     getUser
+   }
+ }
+});
+</script>
 ```
 
 ### API
