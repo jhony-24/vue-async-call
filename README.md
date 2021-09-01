@@ -34,7 +34,29 @@ const { data } = useAsync({
 });
 ```
 Him default value is undefined but now it's an array.
+Is it possible to use multiple useAsync together?, 
+we use the reactive from vue to have multiple async options.
 
+````javascript
+import { reactive } from "vue";
+const users = reactive(useAsync());
+const jobs = reactive(useAsync());
+
+// using it
+console.log(users.data);
+console.log(jobs.data);
+````
+
+### Typescript
+Define just an interface and you pass it as an generic type.
+
+```typescript
+interface User {
+   name: string;
+   age: number;
+}
+const { data } = useAsync<User[]>();
+```
 
 ### API
 #### useAsync
