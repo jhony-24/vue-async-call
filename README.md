@@ -41,7 +41,7 @@ const { data } = useAsync({
   data: [],
 });
 ```
-Him default value is undefined but now it's an array.
+His default value is undefined but now it's an array.
 Is it possible to use multiple useAsync together?, 
 we use the reactive from vue to have multiple async options.
 
@@ -54,6 +54,21 @@ const jobs = reactive(useAsync());
 console.log(users.data);
 console.log(jobs.data);
 ````
+
+## Listening events
+There are different methods to listening changes by composable.
+```javascript
+const { exec } = useAsync({
+ onSuccess(data) {
+  
+ },
+ onError(error){
+ 
+ },
+ onLoading() {
+ 
+});
+```
 
 ## Typescript
 Define just an interface or type and you pass it 
