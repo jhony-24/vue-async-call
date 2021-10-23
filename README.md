@@ -1,5 +1,8 @@
 # Vue async call
 
+![GitHub](https://img.shields.io/github/license/jhony-24/vue-async-call)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/jhony-24/vue-async-call)
+
 ## Installation
 ```
 npm install vue-async-call
