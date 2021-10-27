@@ -3,6 +3,10 @@
 ![GitHub](https://img.shields.io/github/license/jhony-24/vue-async-call)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/jhony-24/vue-async-call)
 
+Vue library to build asynchronous stores in Vue 3. 
+Access diferent states and events customizing any states.
+It brings integration using typescript to do it more easy.
+
 ## Installation
 ```
 npm install vue-async-call
@@ -28,7 +32,9 @@ const {
  error, 
  idl,
  exec 
-} = useAsync();
+} = useAsync({
+  data: []
+});
 
 
 exec(() => api.fetchUsers());
