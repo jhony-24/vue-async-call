@@ -29,7 +29,7 @@ export function useAsync<T extends any>(
       configuration?.onSuccess?.(response)
       state.error = ""
     } catch (error) {
-      state.error = error?.response
+      state.error = error
       configuration?.onError?.(error)
     } finally {
       state.loading = false
