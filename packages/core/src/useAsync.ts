@@ -6,13 +6,13 @@ import {
   ResponsePromiseCallback,
 } from "./types"
 
-export function useAsync<T extends any>(
+export function useAsync<T = {},ErrorValue extends any = any>(
   defaultParams: Partial<DefaultParams<T>> = {
     loading: true,
     error: "",
     data: undefined,
   },
-  configuration?: AsyncReactiveConfiguration<T>
+  configuration?: AsyncReactiveConfiguration<T,ErrorValue>
 ) {
   const state = reactive<AsyncReactiveValue<T>>({
     ...(defaultParams as AsyncReactiveValue<T>),
@@ -30,7 +30,7 @@ export function useAsync<T extends any>(
       state.error = ""
     } catch (error) {
       state.error = error
-      configuration?.onError?.(error)
+      configuration?.onError?.(error as ErrorValue)
     } finally {
       state.loading = false
     }

@@ -5,7 +5,7 @@ import { useAsync } from "./useAsync"
 const defaultKey = "asyncCache"
 
 export function useAsyncCacheProvider<T>(key?: string) {
-  const asyncValue = useAsync<T>(undefined)
+  const asyncValue = useAsync<T,Error>(undefined)
   const { data } = asyncValue
   const execCache = async (resolve: ResponsePromiseCallback) => {
     if (!data.value) asyncValue.exec(resolve)

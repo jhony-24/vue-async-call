@@ -7,9 +7,9 @@ export interface AsyncReactiveValue<Value> {
   idl: boolean
 }
 
-export interface AsyncReactiveConfiguration<Value> {
+export interface AsyncReactiveConfiguration<Value,ErrorValue> {
   onSuccess?(response?: Value): void
-  onError?(error: Error): void
+  onError?(error: ErrorValue): void
   onLoading?(): void
   onIdl?(): void
 }
